@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.topnav {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow-x: auto;
+  background: rgb(147, 140, 149);
+  white-space: nowrap;
+  border-radius: 0px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.topnav a {
+  display: inline-block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.topnav a:hover {
+  background-color: #87c245;
+  color: white;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  border-radius: 5px;
+
+}
+.topnav a:not(:first-child) {
+  margin-right: 10px;
+}
+
+
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 5px;
+  margin: 0 10px 10px 4px; /* Adjust margin for spacing between buttons */
+  background-color: #cfd9dc;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  text-decoration: none;
+  font-size: 10px;
+  
+  border-radius: 5px;
+  min-width: 90px;
+}
+
+
+.button img {
+  padding-right: 10px;
+  height: 20px;
+  width: 20px;
+}
+
+.button:hover {
+  background-color: #04AA6D;
+}
+
+.name1 {
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.buttonbox{
+    overflow: auto;
+}
+.buttonbox1{
+  overflow: auto;}
+
+  .buttonbox2{
+    overflow: auto;
+}
+.buttonbox3{
+  overflow: auto;}
+
+  .category-buttons-container {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 10px;
+    background: #ffffff;
+  }
+
+  .category-buttons-container button {
+    padding: 10px 20px;
+    margin-right: 10px; /* Add some space between buttons */
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333;
+    white-space: nowrap; /* Prevent line breaks */
+  }
+  .category-buttons-container button:hover {
+  background-color: #f0f0f0;
+}
+  .category-buttons-container button.active {
+    background-color: #b94ece;
+    color: #ffffff;
+    border: 2px solid #5b2ac5;
+    /* transition: border 0.1s ease-in-out; */
+
+
+  }
+
+  .category-buttons-container button {
+  margin-right: 15px;
+  /* transition: background-color 0.9s ease-in-out, color 0.9s ease-in-out; */
+
+}
+.container {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+#no-results-message {
+  text-align: center;
+  font-size: 18px;
+}
+#offline-message {
+      display: none;
+      text-align: center;
+      font-size: 20px;
+      padding: 20px;
+      background-color: #ff5555;
+      color: white;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 9999;
+      transition: background-color 0.5s ease-in-out;
+    }
+     /* Add a green background when online */
+     #offline-message.online {
+      background-color: #04AA6D;
+    }
+
+    .shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-300%);
+  }
+  100% {
+    transform: translateX(500%);
+  }
+}
+  
+</style>
+</head>
+
+<!-- 
+<div class="topnav" id="myTopnav">
+  <a href="#" onclick="showAll()">Show All</a>
+
+    <a href="#" onclick="showContainer('container')">Search Engines</a>
+  <a href="#" onclick="showContainer('container1')">Reels</a>
+  <a href="#" onclick="showContainer('container3')">About</a> 
+  <a href="#class1">search engine</a>
+  <a href="#contact">Reels</a>
+  <a href="#about">About</a>
+  <a href="#text1">Text 1</a>
+  <a href="#text2">Text 2</a>
+  <a href="#text3">Text 3</a>
+  <a href="#text4">Text 4</a>
+  <a href="#text5">Text 5</a>
+  <a href="https://www.google.com">Google</a>
+  <a href="https://www.facebook.com">Facebook</a>
+  <a href="https://www.instagram.com">Instagram</a>
+</div> -->
+
+
+<div class="category-buttons-container">
+  <button class="filter-button active" onclick="filterVideos('all')" data-category="all">Social Medias WebSites</button>
+
+</div> 
+
+
+<div class="container" data-category="Allinone">
+
+  <div class="name1">
+<p>All Social Medias Sites</p></div>
+<div class="buttonbox1">
+  
+  <div class="button-container">
+
+
+
+
+
+
+    <a href="https://sharechat.com/">
+      <div class="button shimmer">
+        <img src="img/sharechat.png" alt="Image 1" height="30" width="30"> sharechat
+      </div>
+    </a>
+    <a href="https://www.facebook.com/messenger/">
+      <div class="button shimmer">
+        <img src="img/facebook.png" alt="Image 1" height="30" width="30"> Facebook
+      </div>
+    </a>
+    <a href="https://www.twitter.com/">
+      <div class="button shimmer">
+        <img src="img/twitter.png" alt="Image 1" height="30" width="30"> Twitter X
+      </div>
+    </a>
+    <a href="https://www.instagram.com/">
+      <div class="button shimmer">
+        <img src="img/instagram.png" alt="Image 1" height="30" width="30"> Instagram
+      </div>
+    </a>
+    <a href="https://www.whatsapp.com/">
+      <div class="button shimmer">
+        <img src="img/whatsapp.png" alt="Image 1" height="30" width="30"> Whatsapp
+      </div>
+    </a>
+    <a href="https://www.snapchat.com/">
+      <div class="button shimmer">
+        <img src="img/snapchat.png" alt="Image 1" height="30" width="30"> Snapchat
+      </div>
+    </a>
+    <a href="https://www.linkedin.com/">
+      <div class="button shimmer">
+        <img src="img/linkedin.png" alt="Image 1" height="30" width="30"> Linkedin
+      </div>
+    </a>
+    <a href="https://www.pinterest.com/">
+      <div class="button shimmer">
+        <img src="img/pinterest.png" alt="Image 1" height="30" width="30"> Pinterest
+      </div>
+    </a>
+    <a href="https://www.tumblr.com/">
+      <div class="button shimmer">
+        <img src="img/tumblr.png" alt="Image 1" height="30" width="30"> Tumblr
+      </div>
+    </a>
+    <a href="https://www.reddit.com/">
+      <div class="button shimmer">
+        <img src="img/reddit.png" alt="Image 1" height="30" width="30"> Reddit
+      </div>
+    </a>
+    <a href="https://www.quora.com/">
+      <div class="button shimmer">
+        <img src="img/quora.png" alt="Image 1" height="30" width="30"> Quora
+      </div>
+    </a>
+    <a href="https://www.tiktok.com/">
+      <div class="button shimmer">
+        <img src="img/tiktok.png" alt="Image 1" height="30" width="30"> Tiktok
+      </div>
+    </a>
+    <a href="https://www.youtube.com/">
+      <div class="button shimmer">
+        <img src="img/youtube.png" alt="Image 1" height="30" width="30"> Youtube
+      </div>
+    </a>
+    <a href="https://www.twitch.tv/">
+      <div class="button shimmer">
+        <img src="img/twitch.png" alt="Image 1" height="30" width="30"> Twitch
+      </div>
+    </a>
+    <a href="https://www.flickr.com/">
+      <div class="button shimmer">
+        <img src="img/flickr.png" alt="Image 1" height="30" width="30"> Flickr
+      </div>
+    </a>
+    <a href="https://www.vimeo.com/">
+      <div class="button shimmer">
+        <img src="img/vimeo.png" alt="Image 1" height="30" width="30"> Vimeo
+      </div>
+    </a>
+    <a href="https://www.myspace.com/">
+      <div class="button shimmer">
+        <img src="img/myspace.png" alt="Image 1" height="30" width="30"> Myspace
+      </div>
+    </a>
+    <a href="https://www.meetup.com/">
+      <div class="button shimmer">
+        <img src="img/meetup.png" alt="Image 1" height="30" width="30"> Meetup
+      </div>
+    </a>
+    <a href="https://www.meetme.com/">
+      <div class="button shimmer">
+        <img src="img/meetme.png" alt="Image 1" height="30" width="30"> Meetme
+      </div>
+    </a>
+    <a href="https://www.tagged.com/">
+      <div class="button shimmer">
+        <img src="img/tagged.png" alt="Image 1" height="30" width="30"> Tagged
+      </div>
+    </a>
+    <a href="https://www.classmates.com/">
+      <div class="button shimmer">
+        <img src="img/classmates.png" alt="Image 1" height="30" width="30"> Classmates
+      </div>
+    </a>
+    
+    <a href="https://www.minds.com/">
+      <div class="button shimmer">
+        <img src="img/minds.png" alt="Image 1" height="30" width="30"> Minds
+      </div>
+    </a>
+    
+  
+    <a href="https://www.mewe.com/">
+      <div class="button shimmer">
+        <img src="img/mewe.png" alt="Image 1" height="30" width="30"> Mewe
+      </div>
+    </a>
+    <a href="https://www.nextdoor.com/">
+      <div class="button shimmer">
+        <img src="img/nextdoor.png" alt="Image 1" height="30" width="30"> Nextdoor
+      </div>
+    </a>
+    <a href="https://www.ello.co/">
+      <div class="button shimmer">
+        <img src="img/ello.png" alt="Image 1" height="30" width="30"> Ello
+      </div>
+    </a>
+    <a href="https://www.flixster.com/">
+      <div class="button shimmer">
+        <img src="img/flixster.png" alt="Image 1" height="30" width="30"> Flixster
+      </div>
+    </a>
+    <a href="https://www.foursquare.com/">
+      <div class="button shimmer">
+        <img src="img/foursquare.png" alt="Image 1" height="30" width="30"> Foursquare
+      </div>
+    </a>
+    <a href="https://www.gaia.com/">
+      <div class="button shimmer">
+        <img src="img/gaia.png" alt="Image 1" height="30" width="30"> Gaia
+      </div>
+    </a>
+    <a href="https://www.goodreads.com/">
+      <div class="button shimmer">
+        <img src="img/goodreads.png" alt="Image 1" height="30" width="30"> Goodreads
+      </div>
+  
+    </a>
+    <a href="https://www.hi5.com/">
+      <div class="button shimmer">
+        <img src="img/hi5.png" alt="Image 1" height="30" width="30">
+        Hi5
+      </div>
+    </a>
+    <a href="https://www.last.fm/">
+      <div class="button shimmer">
+        <img src="img/last.png" alt="Image 1" height="30" width="30">
+        Last.fm
+      </div>
+    </a>
+    <a href="https://www.livejournal.com/">
+      <div class="button shimmer">
+        <img src="img/livejournal.png" alt="Image 1" height="30" width="30">
+        LiveJournal
+      </div>
+    </a>
+    <a href="https://www.mastodon.social/about">
+      <div class="button shimmer">
+        <img src="img/mastodon.png" alt="Image 1" height="30" width="30">
+        Mastodon
+      </div>
+    </a>
+   
+  
+  
+ 
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+      function handleButtonClick(button) {
+    document.querySelectorAll('.filter-button').forEach(btn => {
+      btn.classList.remove('active');
+    });
+
+    button.classList.add('active');
+
+    const category = button.getAttribute('data-category');
+    filterVideos(category);
+  }
+
+  document.querySelectorAll('.filter-button').forEach(button => {
+    button.addEventListener('click', () => {
+      handleButtonClick(button);
+    });
+  });
+
+  function filterVideos(category) {
+    const videoItems = document.querySelectorAll('.container');
+    let noResultsMessage = document.getElementById('no-results-message');
+    let hasResults = false;
+
+    videoItems.forEach(item => {
+      const itemCategory = item.getAttribute('data-category');
+
+      if (category === 'all' || itemCategory === category) {
+        item.style.display = 'block';
+        hasResults = true;
+      } else {
+        item.style.display = 'none';
+      }
+    });
+
+    noResultsMessage.style.display = hasResults ? 'none' : 'block';
+  }
+
+  function showContainer(containerId, category) {
+    const containers = document.querySelectorAll('.container');
+    containers.forEach(container => {
+      container.style.display = 'none';
+    });
+
+    const container = document.querySelector(`.${containerId}`);
+    if (category) {
+      filterVideos(category);
+    } else {
+      container.style.display = 'block';
+    }
+  }
+
+  function showAll() {
+    const containers = document.querySelectorAll('.container');
+    containers.forEach(container => {
+      container.style.display = 'block';
+    });
+
+    filterVideos('all');
+  }
+     
+     
+     
+     
+     
+     </script> 
+    
+</body>
+</html>
